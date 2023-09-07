@@ -21,7 +21,7 @@ public class TestController {
     }
 
     @GetMapping("/testRequestBody")
-    //DTO 반환
+    //TestRequestBodyDTO 타입의 JSON 데이터를 파라미터로 받고 수정하여 반환
     public String testControllerRequestBody(@RequestBody TestRequestBodyDTO testRequestBodyDTO){
         return "Hello World ID" + testRequestBodyDTO.getId() + "Message : " + testRequestBodyDTO.getMessage();
     }
