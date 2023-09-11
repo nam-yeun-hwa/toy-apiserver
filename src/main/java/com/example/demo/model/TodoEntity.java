@@ -32,6 +32,8 @@ public class TodoEntity {
     private boolean done;
 
 
+
+
 }
 
 //엔티티 이름을 부여하고 싶다면

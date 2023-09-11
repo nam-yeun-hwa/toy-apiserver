@@ -17,13 +17,12 @@ public class TodoService{
 
     public List<TodoEntity> create(final TodoEntity entity){
         //validations
-//        validate(entity);
+        validate(entity);
 
         repository.save(entity);
         log.info("Entity Id : {} is saved.", entity.getId());
 
         return  repository.findByUserId(entity.getUserId());
-//        return repository.findbyUserId(entity.getUserId());
     }
 
     private void validate(final TodoEntity entity){
