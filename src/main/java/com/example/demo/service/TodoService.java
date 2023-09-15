@@ -11,10 +11,14 @@ import java.util.List;
 @Slf4j
 @Service
 public class TodoService{
-
     @Autowired
     private TodoRepository repository;
 
+    /**
+     * @function create
+     * @param entity
+     * @return 게시글 작성
+     */
     public List<TodoEntity> create(final TodoEntity entity){
         //validations
         validate(entity);
@@ -25,10 +29,20 @@ public class TodoService{
         return  repository.findByUserId(entity.getUserId());
     }
 
+    /**
+     * @function retrieve
+     * @param userId
+     * @return 임시사용자 게시글 리스트
+     */
     public List<TodoEntity> retrieve(final  String userId){
         return repository.findByUserId(userId);
     }
 
+    /**
+     * @function validate
+     * @description 게시글 작성시 validate
+     * @param entity
+     */
     private void validate(final TodoEntity entity){
         if(entity == null){
             log.warn("Entity cannot be null.");
