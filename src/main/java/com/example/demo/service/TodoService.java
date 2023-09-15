@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -54,6 +55,25 @@ public class TodoService{
             log.warn("Unknown user");
             throw new RuntimeException("Unknow user.");
         }
+    }
+
+    public List<TodoEntity> update(final TodoEntity entity){
+        //저장할 entity가 유효한지 확인한다.
+        validate(entity);
+
+        //넘겨받은 엔티티 id를 이용해 TodoEntity를 가져온다.
+        final Optional<TodoEntity> original = repository.findById(entity.getId());
+
+        original.ifPresent(todo -> {
+            //반환된 TodoEntity가 존재하면 값을 새 entity의 값으로 덮어 씌운다.
+            todo.setTitle(entity.getTitle());
+            todo.setDone(entity.isDone());
+
+            //데이타 베이스에 새 값을 저장한다.
+            repository.save(todo);
+        });
+
+        return retrieve(entity.getUserId());
     }
 
     public String testService(){
