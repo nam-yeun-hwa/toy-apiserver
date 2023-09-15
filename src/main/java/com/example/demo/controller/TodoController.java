@@ -16,7 +16,8 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequestMapping("todo")
-public class TodoController {
+public class TodoController
+{
     @Autowired
     private TodoService service;
 
@@ -77,6 +78,12 @@ public class TodoController {
         return  ResponseEntity.ok().body(response);
     }
 
+    /**
+     * @function updateTodo
+     * @param dto
+     * @description 아이디 값을 조회하여 게시글 수정
+     * @return
+     */
     @PutMapping
     public ResponseEntity<?> updateTodo(@RequestBody TodoDTO dto){
         String temporaryUserId = "temporary-user";
