@@ -20,6 +20,12 @@ public class TodoController {
     @Autowired
     private TodoService service;
 
+    /**
+     * @function createTodo
+     * @param dto
+     * @return
+     * @description dto를 받아 엔티티로 변환후 서비스로 엔티티를 전달해 서비스에서 엔티티를 저장 한 후 엔티티 리스트를 리턴 하고 엔티티 리스트를 dto리스트로 변환하여 사용자에게 반환해준다.
+     */
     @PostMapping
     public ResponseEntity<?> createTodo(@RequestBody TodoDTO dto){
         try {
@@ -54,6 +60,10 @@ public class TodoController {
         }
     }
 
+    /**
+     * @function retrieveTodoList
+     * @return temporary-user의 게시글 리스트 리턴
+     */
     @GetMapping
     public ResponseEntity<?> retrieveTodoList(){
         String temporaryUserId = "temporary-user";
