@@ -57,6 +57,13 @@ public class TodoService{
         }
     }
 
+
+    /**
+     * @function update
+     * @param entity
+     * @description 게시글 업데이트
+     * @return
+     */
     public List<TodoEntity> update(final TodoEntity entity){
         //저장할 entity가 유효한지 확인한다.
         validate(entity);
