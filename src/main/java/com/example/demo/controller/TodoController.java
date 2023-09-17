@@ -106,6 +106,12 @@ public class TodoController
         return ResponseEntity.ok().body(response);
     }
 
+    /**
+     * @function deleteTodo
+     * @param dto
+     * @description 게시글 삭제시 호출됨
+     * @return
+     */
     @DeleteMapping
     public ResponseEntity<?> deleteTodo(@RequestBody TodoDTO dto){
         try{
