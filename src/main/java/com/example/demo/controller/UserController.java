@@ -47,6 +47,7 @@ public class UserController {
         }
     }
 
+    @PostMapping("/signin")
     public ResponseEntity<?> authenticate(@RequestBody UserDTO userDTO){
         UserEntity user = userService.getByCredentials(userDTO.getUsername(), userDTO.getPassword());
 
