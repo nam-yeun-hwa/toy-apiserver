@@ -53,8 +53,8 @@ public class UserController {
 
         if(user != null){
             final UserDTO responseUserDTO = UserDTO.builder()
-                    .username(userDTO.getUsername())
-                    .id(userDTO.getId())
+                    .username(user.getUsername())
+                    .id(user.getId())
                     .build();
             return ResponseEntity.ok().body(responseUserDTO);
         }else{
