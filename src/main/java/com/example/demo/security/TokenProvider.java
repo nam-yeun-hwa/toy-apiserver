@@ -18,6 +18,12 @@ import java.util.Date;
 public class TokenProvider {
     private static final String SECRET_KEY = "NMA8JPctFuna59f5";
 
+    /**
+     * @function create
+     * @description JWT라이브러리를 이용해 토큰을 생성
+     * @param userEntity
+     * @return
+     */
     public String create(UserEntity userEntity){
 
         //기한(지금으로부터 1일)
