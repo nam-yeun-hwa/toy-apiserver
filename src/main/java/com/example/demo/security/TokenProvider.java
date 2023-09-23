@@ -27,6 +27,7 @@ public class TokenProvider {
     public String create(UserEntity userEntity){
 
         //기한(지금으로부터 1일)
+        //토큰을 생성하는 과정에서 우리가 임의로 지정한 SECRET_KEY를 개인키로 사용 한다.
         Date expiraDate = Date.from(
                 Instant.now()
                         .plus(1, ChronoUnit.DAYS));
