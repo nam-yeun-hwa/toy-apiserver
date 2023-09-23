@@ -32,6 +32,8 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("com.google.guava:guava:31.1-jre")
 	implementation("io.jsonwebtoken:jjwt-api:0.11.2")
+	implementation ("io.jsonwebtoken:jjwt-impl:0.11.2")
+	implementation ("io.jsonwebtoken:jjwt-jackson:0.11.2")
 
 
 }
