@@ -31,6 +31,8 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("com.google.guava:guava:31.1-jre")
+	implementation("io.jsonwebtoken:jjwt-api:0.11.2")
+
 
 }
 
