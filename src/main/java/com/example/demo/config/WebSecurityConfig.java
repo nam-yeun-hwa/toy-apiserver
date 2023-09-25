@@ -38,3 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterAfter(jwtAuthenticationFilter, CorsFilter.class);
     }
 }
+// HTTPSecurity는 시큐리티 설정을 위한 오브젝트이다.
+// 이 오브젝트는 빌더를 제공하는데 빌더를 이용해 cors, csrf, httpbasic, session, authorizeRequest 등 다양한 설정을 할 수 있다.
+// HttpSecurity를 이용해 시큐리티 관련 설정을 하는 것이다.
+// addFilterAfter() 메서드를 실행하는 것을 알 수 있다. 이것도 jwtAuthenticationFilter를 CorsFilter 이후에 실행하라고 설정 하는 것이다.
+
