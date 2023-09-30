@@ -42,6 +42,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
                 securityContext.setAuthentication(authentication);
                 SecurityContextHolder.setContext(securityContext);
+                //스프링이 userId를 찾을수 있는 이유가 여기에 있다.
+                //UsernamePasswordAuthenticationToken을 생성할때 생성자의 첫번째 매개변수가 AuthenticationPriscipal이다.
+                //AuthenticationPrincipal에 스트링형의 userId를 넣어줬다. 또 이 오브젝트를 SecurityContext에 등록했다.
+                //스프링은 컨트롤러메서드를 부를때 @AuthenticationPrinciPal어노테이션이 있다는 것을 알고 있고
+                //SecurityContextHolder에서 SecurityContext::Authentication 즉 UsernamdePasswordAuthenticationToken
+                //오브젝트를 가져온다, 이 오브젝트에서 AuthenticationPrinciPal을 가져와 컨트롤러 메서드에 넘겨준다,
+                //AuthenticationPrincipal를 String형의 오브젝트로 지정했기 때문에 컨트롤러의 @AuthenticationPrincipal형으로
+                //String을 사용해야 한다는 것을 미리 알고 있다.
+
             }
         }catch (Exception ex){
             logger.error("Could not set user authentication in security context", ex);
